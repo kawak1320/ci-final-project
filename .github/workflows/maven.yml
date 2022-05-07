@@ -60,6 +60,8 @@ jobs:
 #          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
+          -Dsonar.projectKey=kawak1320_ci-final-project
+          -Dsonar.organization=ci-finalproject
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
