@@ -34,7 +34,7 @@ jobs:
     name: SonarCloud analysis
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - name: Set up JDK 11
         uses: actions/setup-java@v1
         with:
@@ -54,9 +54,10 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       #Analyze project with SonarCloud
       - name: Analyze with SonarCloud
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar 
-          -Dsonar.projectKey=kawak1320_ci-final-project
-          -Dsonar.organization=ci-finalproject
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=kawak1320_ci-final-project -Dsonar.login=$SONAR_TOKEN
+#        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+#          -Dsonar.projectKey=kawak1320_ci-final-project
+#          -Dsonar.organization=ci-finalproject
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -74,12 +75,12 @@ jobs:
 
   build:
     #Make Sonar run Build job parallel to Tests job and build only when these steps do not fail
-    needs: [ tests, sonar ]
+    needs: [ sonar ]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v1
     - name: Set up JDK 11
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v1
       with:
         java-version: '11'
         distribution: 'temurin'
@@ -92,7 +93,7 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package -DskipTests --file pom.xml
     - name: Upload JAR
     #Upload artifacts workflow allowing to share data between jobs and store data once a workflow is complete.
       uses: actions/upload-artifact@v2
