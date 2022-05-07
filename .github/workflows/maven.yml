@@ -53,28 +53,11 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       #Analyze project with SonarCloud
-#      - name: Analyze with SonarCloud
-#        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
-#        with:
-#          projectBaseDir: my-custom-directory
-#          args: >
-#            -Dsonar.organization=ci-finalproject
-#            -Dsonar.projectKey=kawak1320_ci-final-project
+      - name: Analyze with SonarCloud
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Pcoverage
         env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-#      - name: SonarQube Quality Gate Check
-#        uses: sonarsource/sonarqube-quality-gate-action@master
-#        # Force to fail step after specific time
-#        timeout-minutes: 5
-#        env:
-#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   build:
     #Make Sonar run Build job parallel to Tests job and build only when these steps do not fail
