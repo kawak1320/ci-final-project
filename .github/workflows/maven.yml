@@ -57,17 +57,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-
-
+      #Adding sonar Quality Gate check
+      - name: SonarQube Quality Gate check
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        # Force to fail step after specific time
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   build:
-
     #Make Sonar run paralel to tests and build only when these steps do not fail
     needs: [ tests, sonar ]
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -75,6 +76,19 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-        cache: maven
+#        cache: maven
+#   Adding Cache Action to build stage
+    - name: Cache Maven packages
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Upload JAR
+    #Upload artifacts workflow allowing to share data between jobs and store data once a workflow is complete.
+      uses: actions/upload-artifact@v2
+      with:
+        name: artifact
+        path: target/data-0.0.1-SNAPSHOT.jar
