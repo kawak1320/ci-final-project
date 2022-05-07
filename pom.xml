@@ -25,6 +25,12 @@
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
+	<scm>
+		<developerConnection>scm:git:https://github.com/kawak1320/ci-final-project.git</developerConnection>
+		<url>https://github.com/kawak1320/ci-final-project</url>
+		<tag>HEAD</tag>
+	</scm>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
