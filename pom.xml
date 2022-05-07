@@ -33,6 +33,7 @@
 		<tag>HEAD</tag>
 	</scm>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -111,3 +112,4 @@
 		</plugins>
 	</build>
 </project>
+
