@@ -58,8 +58,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #Adding sonar Quality Gate check
-      # Triggering SonarQube analysis as results of it are required by Quality Gate check
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         env:
