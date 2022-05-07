@@ -24,6 +24,7 @@
 		<sonar.projectKey>kawak1320_ci-final-project</sonar.projectKey>
 		<sonar.organization>ci-finalproject</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.sources>src/main/java,src/main/webapp</sonar.sources>
 	</properties>
 
 	<scm>
