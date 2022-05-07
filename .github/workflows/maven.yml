@@ -75,7 +75,7 @@ jobs:
 
   build:
     #Make Sonar run Build job parallel to Tests job and build only when these steps do not fail
-    needs: [ test, sonar ]
+    needs: [ tests, sonar ]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
