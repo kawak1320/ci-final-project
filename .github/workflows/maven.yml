@@ -54,8 +54,8 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       #Analyze project with SonarCloud
       - name: Analyze with SonarCloud
-        run: mvn -B verify sonar:sonar -Dsonar.projectKey=kawak1320_ci-final-project -Dsonar.login=$SONAR_TOKEN
-#        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+#        run: mvn -B verify sonar:sonar -Dsonar.projectKey=kawak1320_ci-final-project -Dsonar.login=$SONAR_TOKEN
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 #          -Dsonar.projectKey=kawak1320_ci-final-project
 #          -Dsonar.organization=ci-finalproject
         env:
