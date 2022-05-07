@@ -65,15 +65,20 @@ jobs:
 #        run: sed -i s/http\:/https\:/g .scannerwork/report-task.txt
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      - name: SonarQube Quality Gate check
-        uses: sonarsource/sonarqube-quality-gate-action@master
-        # Force to fail step after specific time
-        timeout-minutes: 5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+#          projectBaseDir: my-custom-directory
+          args: >
+            -Dsonar.organization=ci-finalproject
+            -Dsonar.projectKey=kawak1320_ci-final-project
+#        env:
+#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+#      - name: SonarQube Quality Gate check
+#        uses: sonarsource/sonarqube-quality-gate-action@master
+#        # Force to fail step after specific time
+#        timeout-minutes: 5
+#        env:
+#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   build:
     #Make Sonar run Build job parallel to Tests job and build only when these steps do not fail
