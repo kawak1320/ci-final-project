@@ -56,8 +56,6 @@ jobs:
       - name: Analyze with SonarCloud
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
           -Dsonar.projectKey=kawak1320_ci-final-project
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
 #        run: mvn verify sonar:sonar \
