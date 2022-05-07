@@ -71,9 +71,10 @@ jobs:
             -Dsonar.organization=ci-finalproject
             -Dsonar.projectKey=kawak1320_ci-final-project
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-#      - name: SonarQube Quality Gate check
+#      - name: SonarQube Quality Gate Check
 #        uses: sonarsource/sonarqube-quality-gate-action@master
 #        # Force to fail step after specific time
 #        timeout-minutes: 5
