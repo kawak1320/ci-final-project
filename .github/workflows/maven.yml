@@ -97,7 +97,7 @@ jobs:
     - name: Upload JAR
     #Upload artifacts workflow allowing to share data between jobs and store data once a workflow is complete.
       uses: actions/upload-artifact@v2
-      run: mkdir -p target/data-0.0.1-SNAPSHOT.jar
+#      run: mkdir -p target/data-0.0.1-SNAPSHOT.jar
       with:
         name: artifact
-        path: target/data-0.0.1-SNAPSHOT.jar
+        path: ${{ github.workspace }}
