@@ -12,7 +12,6 @@ on:
 jobs:
   tests:
     name: Unit tests
-    needs: Gitleaks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -32,7 +31,7 @@ jobs:
 
   sonar:
     name: SonarCloud analysis
-    needs: Gitleaks
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -75,7 +74,7 @@ jobs:
 
   build:
     #Make Sonar run Build job parallel to Tests job and build only when these steps do not fail
-    needs: [ tests, sonar ]
+    needs: [ sonar ]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
