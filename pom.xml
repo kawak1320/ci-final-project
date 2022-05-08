@@ -18,6 +18,58 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
+	<scm>
+		<developerConnection>scm:git:https://github.com/kawak1320/ci-final-project.git</developerConnection>
+		<url>https://github.com/kawak1320/ci-final-project</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<profiles>
+		<profile>
+			<id>github-actions</id>
+			<activation>
+				<property>
+					<name>env.BUILD_ENV</name>
+					<value>github-actions</value>
+				</property>
+			</activation>
+			<repositories>
+				<repository>
+					<id>artifactory</id>
+					<name>finalproject</name>
+					<url>https://finalproject.jfrog.io/artifactory/default-maven-local</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>artifactory</id>
+					<name>finalproject</name>
+					<url>https://finalproject.jfrog.io/artifactory/default-maven-local</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</pluginRepository>
+				<pluginRepository>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<id>central</id>
+					<name>bintray-plugins</name>
+					<url>https://jcenter.bintray.com</url>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>11</java.version>
@@ -26,13 +78,6 @@
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<sonar.sources>src/main/java</sonar.sources>
 	</properties>
-
-	<scm>
-		<developerConnection>scm:git:https://github.com/kawak1320/ci-final-project.git</developerConnection>
-		<url>https://github.com/kawak1320/ci-final-project</url>
-		<tag>HEAD</tag>
-	</scm>
-
 
 	<dependencies>
 		<dependency>
@@ -83,6 +128,38 @@
 	
 	<build>
 		<plugins>
+
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<configuration>
+					<tagNameFormat>v@{project.version}</tagNameFormat>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jfrog.buildinfo</groupId>
+				<artifactId>artifactory-maven-plugin</artifactId>
+				<version>3.4.0</version>
+				<inherited>false</inherited>
+				<executions>
+					<execution>
+						<id>build-info</id>
+						<goals>
+							<goal>publish</goal>
+						</goals>
+						<configuration>
+							<publisher>
+								<contextUrl>https://finalproject.jfrog.io//artifactory</contextUrl>
+								<username>devops</username>
+								<password>${env.ARTIFACTORY_TOKEN}</password>
+								<repoKey>default-maven-local</repoKey>
+								<snapshotRepoKey>default-maven-local</snapshotRepoKey>
+							</publisher>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
