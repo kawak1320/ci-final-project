@@ -56,16 +56,15 @@ jobs:
       - name: Clone Repo
         uses: actions/checkout@v2
       - name: Analyze with SonarCloud
-#        uses: sonarsource/sonarcloud-github-action@master
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#      - name: Analyze with SonarCloud
-#        run: mvn -B verify sonar:sonar -Dsonar.projectKey=kawak1320_ci-final-project -Dsonar.organization=ci-finalproject -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+#        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Analyze with SonarCloud
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=kawak1320_ci-final-project -Dsonar.organization=ci-finalproject -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 #      - name: Analyze with SonarCloud
 #        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 #        env:
@@ -101,15 +100,15 @@ jobs:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
-    - name: Build with Maven
-      run: mvn -B package -DskipTests --file pom.xml
 #    - name: Build with Maven
-#      env:
-#        ARTIFACTORY_USERNAME_REF: "devops"
-#        ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
-#        BUILD_ENV: 'github-actions'
 #      run: mvn -B package -DskipTests --file pom.xml
-    #Upload artifacts workflow allowing to share data between jobs and store data once a workflow is complete.
+    - name: Build with Maven
+      env:
+        ARTIFACTORY_USERNAME_REF: "devops"
+        ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
+        BUILD_ENV: 'github-actions'
+      run: mvn -B package -DskipTests --file pom.xml
+    Upload artifacts workflow allowing to share data between jobs and store data once a workflow is complete.
     - name: Upload JAR
       uses: actions/upload-artifact@v2
       with:
