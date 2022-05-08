@@ -5,6 +5,7 @@ on: [push,pull_request]
 jobs:
   gitleaks:
     runs-on: ubuntu-latest
+    name: Gitleaks
     steps:
       - uses: actions/checkout@v2
         with:
