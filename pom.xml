@@ -80,7 +80,9 @@
 		</dependency>
 	</dependencies>
 
+
 	<build>
+
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -110,6 +112,20 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>central</id>
+			<name>a0jsahuuxrvhh-artifactory-primary-0-releases</name>
+			<url>https://finalproject.jfrog.io/artifactory/default-maven-virtual</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>a0jsahuuxrvhh-artifactory-primary-0-snapshots</name>
+			<url>https://finalproject.jfrog.io/artifactory/default-maven-virtual</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<profiles>
 		<profile>
 			<id>coverage</id>
