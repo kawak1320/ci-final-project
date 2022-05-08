@@ -56,7 +56,8 @@ jobs:
       - name: Clone Repo
         uses: actions/checkout@v2
       - name: Analyze with SonarCloud
-        uses: sonarsource/sonarcloud-github-action@master
+#        uses: sonarsource/sonarcloud-github-action@master
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
