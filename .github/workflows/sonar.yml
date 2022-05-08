@@ -37,7 +37,7 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 
-  sonarqube:
+  sonarqube2:
     needs: build
     runs-on: ubuntu-latest
     steps:
