@@ -10,6 +10,22 @@ on:
     types: [ opened, synchronize, reopened ]
 
 jobs:
+  snyk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/maven@master
+        continue-on-error: true # To make sure that SARIF upload gets called
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --sarif-file-output=snyk.sarif
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: snyk.sarif
+
   gitleaks:
     name: Gitleaks Test
     runs-on: ubuntu-latest
@@ -66,23 +82,11 @@ jobs:
       #Analyze project with SonarCloud
       - name: Clone Repo
         uses: actions/checkout@v2
-#      - name: Analyze with SonarCloud
-#        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: Analyze with SonarCloud
         run: mvn -B verify sonar:sonar -Dsonar.qualitygate.wait=true
-#        run: mvn -B verify sonar:sonar -Dsonar.projectKey=kawak1320_ci-final-project -Dsonar.organization=ci-finalproject -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#      - name: Analyze with SonarCloud
-#        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#          JAVA_HOME: ''
 
   build:
     name: Build
@@ -113,8 +117,6 @@ jobs:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
-#    - name: Build with Maven
-#      run: mvn -B package -DskipTests --file pom.xml
     - name: Build with Maven
       env:
         ARTIFACTORY_USERNAME_REF: "devops"
