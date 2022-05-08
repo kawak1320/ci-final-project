@@ -26,6 +26,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sonar.java.libraries>target</sonar.java.libraries>
 		<java.version>11</java.version>
 		<sonar.projectKey>kawak1320_ci-final-project</sonar.projectKey>
 		<sonar.organization>ci-finalproject</sonar.organization>
