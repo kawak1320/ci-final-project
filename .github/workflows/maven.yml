@@ -10,8 +10,19 @@ on:
     types: [ opened, synchronize, reopened ]
 
 jobs:
+  gitleaks:
+    name: Gitleaks Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+      - name: gitleaks-action
+        uses: zricethezav/gitleaks-action@master
+
   tests:
-    name: Unit tests
+    name: Unit Tests
+    needs: [ gitleaks ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -30,8 +41,8 @@ jobs:
         run: mvn -B test
 
   sonar:
-    name: SonarCloud analysis
-    needs: test
+    name: SonarCloud Analysis
+    needs: [ test ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -73,6 +84,7 @@ jobs:
 #          JAVA_HOME: ''
 
   build:
+    name: Build
     #Make Sonar run Build job parallel to Tests job and build only when these steps do not fail
     needs: [ sonar ]
     runs-on: ubuntu-latest
