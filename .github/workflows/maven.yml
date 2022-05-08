@@ -38,7 +38,7 @@ jobs:
 
   tests:
     name: Unit Tests
-    needs: [ gitleaks ]
+    needs: [ gitleaks, snyk ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -57,8 +57,9 @@ jobs:
         run: mvn -B test
 
   sonar:
+    continue-on-error: true
     name: SonarCloud Analysis
-    needs: [ gitleaks ]
+    needs: [ gitleaks, snyk ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
