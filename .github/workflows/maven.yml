@@ -108,7 +108,7 @@ jobs:
         ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
         BUILD_ENV: 'github-actions'
       run: mvn -B package -DskipTests --file pom.xml
-    Upload artifacts workflow allowing to share data between jobs and store data once a workflow is complete.
+#    Upload artifacts workflow allowing to share data between jobs and store data once a workflow is complete.
     - name: Upload JAR
       uses: actions/upload-artifact@v2
       with:
