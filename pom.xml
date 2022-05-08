@@ -37,7 +37,7 @@
 				<repository>
 					<id>artifactory</id>
 					<name>finalproject</name>
-					<url>https://finalproject.jfrog.io/artifactory/default-maven-local</url>
+					<url>https://finalproject.jfrog.io/artifactory/default-maven-virtual</url>
 					<releases>
 						<enabled>true</enabled>
 					</releases>
@@ -50,7 +50,7 @@
 				<pluginRepository>
 					<id>artifactory</id>
 					<name>finalproject</name>
-					<url>https://finalproject.jfrog.io/artifactory/default-maven-local</url>
+					<url>https://finalproject.jfrog.io/artifactory/default-maven-virtual</url>
 					<releases>
 						<enabled>true</enabled>
 					</releases>
