@@ -27,7 +27,7 @@ jobs:
 #          sarif_file: snyk.sarif
 
   gitleaks:
-    name: Gitleaks Test
+    name: gitleaks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -58,7 +58,7 @@ jobs:
 
   sonar:
     continue-on-error: true
-    name: SonarCloud Analysis
+    name: SonarCloud Analysis (allow failure)
     needs: [ gitleaks, snyk ]
     runs-on: ubuntu-latest
     steps:
