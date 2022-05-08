@@ -124,7 +124,7 @@
 			<name>a0jsahuuxrvhh-artifactory-primary-0-snapshots</name>
 			<url>https://finalproject.jfrog.io/artifactory/default-maven-virtual</url>
 		</snapshotRepository>
-	</distributionManagement>rrrrrrrrrrrrr
+	</distributionManagement>
 
 	<profiles>
 		<profile>
