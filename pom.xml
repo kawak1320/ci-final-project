@@ -149,7 +149,7 @@
 						</goals>
 						<configuration>
 							<publisher>
-								<contextUrl>https://finalproject.jfrog.io//artifactory</contextUrl>
+								<contextUrl>https://finalproject.jfrog.io/artifactory</contextUrl>
 								<username>devops</username>
 								<password>${env.ARTIFACTORY_TOKEN}</password>
 								<repoKey>default-maven-local</repoKey>
