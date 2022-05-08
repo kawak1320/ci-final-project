@@ -26,47 +26,39 @@
 
 	<profiles>
 		<profile>
-			<id>github-actions</id>
-			<activation>
-				<property>
-					<name>env.BUILD_ENV</name>
-					<value>github-actions</value>
-				</property>
-			</activation>
 			<repositories>
 				<repository>
-					<id>artifactory</id>
-					<name>finalproject</name>
-					<url>https://finalproject.jfrog.io/artifactory/default-maven-virtual</url>
-					<releases>
-						<enabled>true</enabled>
-					</releases>
 					<snapshots>
 						<enabled>false</enabled>
 					</snapshots>
+					<id>central</id>
+					<name>default-maven-virtual</name>
+					<url>https://finalproject.jfrog.io/artifactory/default-maven-virtual</url>
+				</repository>
+				<repository>
+					<snapshots />
+					<id>snapshots</id>
+					<name>default-maven-virtual</name>
+					<url>https://finalproject.jfrog.io/artifactory/default-maven-virtual</url>
 				</repository>
 			</repositories>
 			<pluginRepositories>
-				<pluginRepository>
-					<id>artifactory</id>
-					<name>finalproject</name>
-					<url>https://finalproject.jfrog.io/artifactory/default-maven-virtual</url>
-					<releases>
-						<enabled>true</enabled>
-					</releases>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-				</pluginRepository>
 				<pluginRepository>
 					<snapshots>
 						<enabled>false</enabled>
 					</snapshots>
 					<id>central</id>
-					<name>bintray-plugins</name>
-					<url>https://jcenter.bintray.com</url>
+					<name>default-maven-virtual</name>
+					<url>https://finalproject.jfrog.io/artifactory/default-maven-virtual</url>
+				</pluginRepository>
+				<pluginRepository>
+					<snapshots />
+					<id>snapshots</id>
+					<name>default-maven-virtual</name>
+					<url>https://finalproject.jfrog.io/artifactory/default-maven-virtual</url>
 				</pluginRepository>
 			</pluginRepositories>
+			<id>artifactory</id>
 		</profile>
 	</profiles>
 

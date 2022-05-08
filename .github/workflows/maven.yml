@@ -94,11 +94,13 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
     - name: Build with Maven
-      env:
-        ARTIFACTORY_USERNAME_REF: "devops"
-        ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
-        BUILD_ENV: 'github-actions'
       run: mvn -B package -DskipTests --file pom.xml
+#    - name: Build with Maven
+#      env:
+#        ARTIFACTORY_USERNAME_REF: "devops"
+#        ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
+#        BUILD_ENV: 'github-actions'
+#      run: mvn -B package -DskipTests --file pom.xml
     #Upload artifacts workflow allowing to share data between jobs and store data once a workflow is complete.
     - name: Upload JAR
       uses: actions/upload-artifact@v2
