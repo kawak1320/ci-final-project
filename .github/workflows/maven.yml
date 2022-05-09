@@ -101,17 +101,17 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: '11'
-    - name: Setup Maven settings.xml
-      uses: whelk-io/maven-settings-xml-action@v11
-      with:
-        servers: |
-          [
-            {
-              "id": "artifactory",
-              "username": "${env.ARTIFACTORY_USERNAME_REF}",
-              "password": "${env.ARTIFACTORY_TOKEN_REF}"
-            }
-          ]
+#    - name: Setup Maven settings.xml
+#      uses: whelk-io/maven-settings-xml-action@v11
+#      with:
+#        servers: |
+#          [
+#            {
+#              "id": "artifactory",
+#              "username": "${env.ARTIFACTORY_USERNAME_REF}",
+#              "password": "${env.ARTIFACTORY_TOKEN_REF}"
+#            }
+#          ]
 #   Adding Cache Action to build stage
     - name: Cache Maven packages
       uses: actions/cache@v1
@@ -119,20 +119,28 @@ jobs:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
+
+    - name: Set up our custom Artifactory instance
+      uses: actions/setup-java@v1
+      with:
+        java-version: '11'
+        server-id: artifactory # value of repository/id field of the pom.xml
+        server-username: ARTIFACTORY_USERNAME_REF  # env variable name for username of Artifactory server; value can be anything as it is a transient user
+        server-password: ARTIFACTORY_TOKEN_REF
+
+    - name: Build with Maven and Upload to Artifactory.
+      run: mvn -B package -DskipTests --file pom.xml
+      env:
+        ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
+        ARTIFACTORY_USERNAME_REF: ${{ secrets.ARTIFACTORY_USERNAME }}
+
 #    - name: Build with Maven and Upload to Artifactory.
 #      run: mvn -B package -DskipTests --file pom.xml
 #      env:
 #        ARTIFACTORY_USERNAME_REF: "devops"
 #        ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
 #        BUILD_ENV: 'github-actions'
-    - name: Build with Maven and Upload to Artifactory.
-#      run: mvn -B package -DskipTests --file pom.xml
-      uses: actions/upload-artifact@v2
-      env:
-        ARTIFACTORY_USERNAME_REF: "devops"
-        ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
-        BUILD_ENV: 'github-actions'
-#      run: mvn -B package --file pom.xml
+
 #    Upload artifacts workflow allowing to share data between jobs and store data once a workflow is complete.
     - name: Upload JAR
       uses: actions/upload-artifact@v2
