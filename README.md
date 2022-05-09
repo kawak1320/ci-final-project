@@ -5,6 +5,9 @@
 Added Project to the Repo
 Select Java with Maven Action
 
+
+![alt text](https://github.com/kawak1320/ci-final-project/blob/main/images/074ff759fe6b41e4bb42d71eaa315f80.png?raw=true)
+
 Adding Unit tests to the workflow
 ![7af7ec43f22e550475268d47215320b6.png](:/fd1da4dfc2394bb0ae8e96caf7b7fe1c)
 
