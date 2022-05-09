@@ -190,4 +190,4 @@ Adding SCM config to POM
 
 JFrog Artifactory
 ![25bbb2b835081145b07e7e886a36454e.png](:/e1800ca03332459d973e9b482f0e2272)
-![alt text](https://github.com/kawak1320/ci-final-project/blob/main/images/e1800ca03332459d973e9b482f0e2272.png?raw=true)
+![alt text](https://github.com/kawak1320/ci-final-project/blob/main/images/e1800ca03332459d973e9b482f0e2272.png?raw=true =250x)
