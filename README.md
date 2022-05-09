@@ -1,9 +1,14 @@
-# ci-final-project
+<div align="center">
+  <h1>ci-final-project</h1>
+</div>
 
-Added Project to the Repo
-Select Java with Maven Action
+#Added Project to the Repo
 
-Adding Unit tests to the workflow
+
+#Select Java with Maven Action
+
+
+#Adding Unit tests to the workflow
 
 ```
   tests:
@@ -30,15 +35,10 @@ Adding Unit tests to the workflow
         run: mvn -B test
 ```
 
-Result of the test step
 <div align="center">
   <img src="images/b9d58f54f6b44aed87744548786e48c5.png" width="200px">
-  <h1>Project name</h1>
+  <p>Results of the test step.</p>
 </div>
-<p align="center">
-  Project description.
-</p>
-![alt text](images/b9d58f54f6b44aed87744548786e48c5.png?raw=true)
 
 We can run any job in the workflow manually
 and added different trigger options for the Pipeline
