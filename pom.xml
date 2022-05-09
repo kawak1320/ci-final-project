@@ -111,7 +111,7 @@
 				<pluginRepository>
 					<id>artifactory</id>
 					<name>ci-final-project-virtual</name>
-					<url>https://your-artifactory.jfrog.io/artifactory/ci-final-project-virtual</url>
+					<url>https://finalproject.jfrog.io/artifactory/ci-final-project-virtual</url>
 					<releases>
 						<enabled>true</enabled>
 					</releases>
