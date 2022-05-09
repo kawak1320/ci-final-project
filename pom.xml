@@ -98,7 +98,7 @@
 				<repository>
 					<id>artifactory</id>
 					<name>ci-final-project-virtual</name>
-					<url>https://finalproject.jfrog.io/artifactory/ci-final-project-virtual</url>
+					<url>https://finalproject.jfrog.io/artifactory/jalacifinal-libs-release</url>
 					<releases>
 						<enabled>true</enabled>
 					</releases>
@@ -111,7 +111,7 @@
 				<pluginRepository>
 					<id>artifactory</id>
 					<name>ci-final-project-virtual</name>
-					<url>https://finalproject.jfrog.io/artifactory/ci-final-project-virtual</url>
+					<url>https://finalproject.jfrog.io/artifactory/jalacifinal-libs-snapshot</url>
 					<releases>
 						<enabled>true</enabled>
 					</releases>
