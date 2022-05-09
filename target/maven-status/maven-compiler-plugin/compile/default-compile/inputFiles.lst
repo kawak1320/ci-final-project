@@ -1,0 +1,10 @@
+/run/media/kawak/Datos/dev/JalaBootcamp/DevOps Bootcamp/ContinuousIntegration/FinalProject/project-apps/ci-final-project/src/main/java/guru/springframework/services/ProductService.java
+/run/media/kawak/Datos/dev/JalaBootcamp/DevOps Bootcamp/ContinuousIntegration/FinalProject/project-apps/ci-final-project/src/main/java/guru/springframework/services/ProductServiceImpl.java
+/run/media/kawak/Datos/dev/JalaBootcamp/DevOps Bootcamp/ContinuousIntegration/FinalProject/project-apps/ci-final-project/src/main/java/guru/springframework/controllers/ProductController.java
+/run/media/kawak/Datos/dev/JalaBootcamp/DevOps Bootcamp/ContinuousIntegration/FinalProject/project-apps/ci-final-project/src/main/java/guru/springframework/domain/Product.java
+/run/media/kawak/Datos/dev/JalaBootcamp/DevOps Bootcamp/ContinuousIntegration/FinalProject/project-apps/ci-final-project/src/main/java/guru/springframework/bootstrap/ProductLoader.java
+/run/media/kawak/Datos/dev/JalaBootcamp/DevOps Bootcamp/ContinuousIntegration/FinalProject/project-apps/ci-final-project/src/main/java/guru/springframework/controllers/IndexController.java
+/run/media/kawak/Datos/dev/JalaBootcamp/DevOps Bootcamp/ContinuousIntegration/FinalProject/project-apps/ci-final-project/src/main/java/guru/springframework/configuration/SecurityConfiguration.java
+/run/media/kawak/Datos/dev/JalaBootcamp/DevOps Bootcamp/ContinuousIntegration/FinalProject/project-apps/ci-final-project/src/main/java/guru/springframework/SpringBootWebApplication.java
+/run/media/kawak/Datos/dev/JalaBootcamp/DevOps Bootcamp/ContinuousIntegration/FinalProject/project-apps/ci-final-project/src/main/java/guru/springframework/repositories/ProductRepository.java
+/run/media/kawak/Datos/dev/JalaBootcamp/DevOps Bootcamp/ContinuousIntegration/FinalProject/project-apps/ci-final-project/src/main/java/guru/springframework/configuration/WebConfiguration.java

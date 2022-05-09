@@ -21,7 +21,14 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>11</java.version>
+		<project.scm.id>github</project.scm.id>
 	</properties>
+
+	<scm>
+		<developerConnection>scm:git:https://github.com/kawak1320/ci-final-project.git/</developerConnection>
+		<url>https://github.com/kawak1320/ci-final-project</url>
+		<tag>HEAD</tag>
+	</scm>
 
 	<dependencies>
 		<dependency>
@@ -44,12 +51,12 @@
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>bootstrap</artifactId>
-			<version>3.3.4</version>
+			<version>5.1.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>jquery</artifactId>
-			<version>2.1.4</version>
+			<version>3.6.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -61,8 +68,53 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>github-actions</id>
+			<activation>
+				<property>
+					<name>env.BUILD_ENV</name>
+					<value>github-actions</value>
+				</property>
+			</activation>
+			<repositories>
+				<repository>
+					<id>artifactory</id>
+					<name>ci-final-project-virtual</name>
+					<url>https://finalproject.jfrog.io/artifactory/ci-final-project-virtual</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>artifactory</id>
+					<name>ci-final-project-virtual</name>
+					<url>https://your-artifactory.jfrog.io/artifactory/ci-final-project-virtual</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</pluginRepository>
+				<pluginRepository>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<id>central</id>
+					<name>bintray-plugins</name>
+					<url>https://jcenter.bintray.com</url>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
 
 	<build>
 		<plugins>
