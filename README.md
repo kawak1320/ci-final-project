@@ -10,9 +10,13 @@ Select Java with Maven Action
 
 Adding Unit tests to the workflow
 ![7af7ec43f22e550475268d47215320b6.png](:/fd1da4dfc2394bb0ae8e96caf7b7fe1c)
+![alt text](https://github.com/kawak1320/ci-final-project/blob/main/images/fd1da4dfc2394bb0ae8e96caf7b7fe1c.png?raw=true)
+
 
 Result of the test step
 ![4d4a1b8e02070214ec83175c1a7d2406.png](:/b9d58f54f6b44aed87744548786e48c5)
+![alt text](https://github.com/kawak1320/ci-final-project/blob/main/images/b9d58f54f6b44aed87744548786e48c5.png?raw=true)
+
 
 We can run any job in the workflow mannually
 ![10c529a0e18fc3cdfb26657f2fd567f8.png](:/07fae8b0da754bfdbbe61d1629f3c66b)
