@@ -101,17 +101,17 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: '11'
-#    - name: Setup Maven settings.xml
-#      uses: whelk-io/maven-settings-xml-action@v11
-#      with:
-#        servers: |
-#          [
-#            {
-#              "id": "artifactory",
-#              "username": "${env.ARTIFACTORY_USERNAME_REF}",
-#              "password": "${env.ARTIFACTORY_TOKEN_REF}"
-#            }
-#          ]
+    - name: Setup Maven settings.xml
+      uses: whelk-io/maven-settings-xml-action@v11
+      with:
+        servers: |
+          [
+            {
+              "id": "artifactory",
+              "username": "${env.ARTIFACTORY_USERNAME_REF}",
+              "password": "${env.ARTIFACTORY_TOKEN_REF}"
+            }
+          ]
 #   Adding Cache Action to build stage
     - name: Cache Maven packages
       uses: actions/cache@v1
