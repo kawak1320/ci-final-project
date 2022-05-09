@@ -119,7 +119,7 @@ jobs:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
-    - name: Build with Maven and Upload to Artifactory
+    - name: Build with Maven and Upload to Artifactory.
       run: mvn -B package -DskipTests --file pom.xml
       env:
         ARTIFACTORY_USERNAME_REF: "devops"
