@@ -190,8 +190,8 @@
 										<contextUrl>https://finalproject.jfrog.io/artifactory</contextUrl>
 										<username>stream-github-actions</username>
 										<password>${env.ARTIFACTORY_TOKEN}</password>
-										<repoKey>libs-release-local</repoKey>
-										<snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
+										<repoKey>ci-final-project-virtual</repoKey>
+										<snapshotRepoKey>ci-final-project-virtual</snapshotRepoKey>
 									</publisher>
 								</configuration>
 							</execution>
