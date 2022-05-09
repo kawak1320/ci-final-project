@@ -4,14 +4,54 @@ Added Project to the Repo
 Select Java with Maven Action
 
 Adding Unit tests to the workflow
-![alt text](images/fd1da4dfc2394bb0ae8e96caf7b7fe1c.png?raw=true)
+
+```
+  tests:
+    name: Unit Tests
+    needs: [ gitleaks, snyk ]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+
+      #Set up Maven cache
+      - name: Cache Maven packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+      - name: Run Tests
+        run: mvn -B test
+```
 
 Result of the test step
+<div align="center">
+  <img src="images/b9d58f54f6b44aed87744548786e48c5.png" width="200px">
+  <h1>Project name</h1>
+</div>
+<p align="center">
+  Project description.
+</p>
 ![alt text](images/b9d58f54f6b44aed87744548786e48c5.png?raw=true)
 
-We can run any job in the workflow mannually
-![alt text](images/07fae8b0da754bfdbbe61d1629f3c66b.png?raw=true)
-
+We can run any job in the workflow manually
+and added different trigger options for the Pipeline
+```
+on:
+  #Manually trigger runs
+  workflow_dispatch:
+  #Trigger workflow on push from main
+  push:
+    branches: [ main ]
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+```
 ![alt text](images/13d001ac8f8a422bb9ed372668992d90.png?raw=true)
 
 Login to sonarcloud with GitHub
