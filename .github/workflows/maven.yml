@@ -119,8 +119,15 @@ jobs:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
+#    - name: Build with Maven and Upload to Artifactory.
+#      run: mvn -B package -DskipTests --file pom.xml
+#      env:
+#        ARTIFACTORY_USERNAME_REF: "devops"
+#        ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
+#        BUILD_ENV: 'github-actions'
     - name: Build with Maven and Upload to Artifactory.
-      run: mvn -B package -DskipTests --file pom.xml
+#      run: mvn -B package -DskipTests --file pom.xml
+      uses: actions/upload-artifact@v2
       env:
         ARTIFACTORY_USERNAME_REF: "devops"
         ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
