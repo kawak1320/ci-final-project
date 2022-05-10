@@ -131,9 +131,10 @@ Everything ok, but code coverage still missing...
 </div>
 
 Adding JavaCodeCoverage dependencies and plugin to pom.xml
-![alt text](images/7e9dfa2b295f4605b6644f714618e988.png?raw=true)
-
-![alt text](images/881dc431a3f4497581116ed09c6c535f.png?raw=true)
+<div align="left">
+  <img src="images/7e9dfa2b295f4605b6644f714618e988.png" width="500px">
+  <img src="images/881dc431a3f4497581116ed09c6c535f.png" width="500px">
+</div>
 
 
 Now we set up Build Stage.
