@@ -1,14 +1,14 @@
 <div align="center">
-  <h1>ci-final-project</h1>
+  <h1>Martín Pavesio Continuous Integration Final Project</h1>
 </div>
 
-## Added Project to the Repo
+### Added Project to the Repo
 
 
-## Select Java with Maven Action
+### Select Java with Maven Action
 
 
-## Adding Unit tests to the workflow
+### Adding Unit tests to the workflow
 
 ```
   tests:
@@ -58,8 +58,11 @@ on:
   <p>Workflow Dispatch active</p>
 </div>
 
-## Login to sonarcloud with GitHub
-![alt text](images/d8d04f92509845c28db7b60bcab4bdb3.png?raw=true)
+
+### Login to sonarcloud with GitHub
+<div align="center">
+  <img src="images/d8d04f92509845c28db7b60bcab4bdb3.png" width="350px">
+</div>
 
 next, add repo to the sonar install
 ![alt text](images/7582a4a0c6864c9ca6da5ba5bce792b2.png?raw=true)
