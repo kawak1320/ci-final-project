@@ -1,11 +1,15 @@
 <div align="center">
   <h1>Martín Pavesio Continuous Integration Final Project</h1>
 </div>
-# Table of Contents
-* [Team Members](#team-members)
 
-# <a name="team-members"></a>Team Members
-* "J. Jesus. P. Aguinaga" <admin@listforks.com>
+Table of contents
+=================
+
+<!--ts-->
+   * [2.1 Source code](#source-code)
+   * [Usage](#usage)
+      * [STDIN](#stdin)
+
 
 ## 2.1 Source code
 
