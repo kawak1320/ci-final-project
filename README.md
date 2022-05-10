@@ -222,10 +222,11 @@ Now we need to set up Quality Gate scope
 </div>
 
 Create a new QG from Organization's Settings:
-On new and overall Code
+<p>On new and overall Code</p>
+
 <div align="left">
-  <img src="images/76c5e03eb7364eaaac4e7e1656990e88.png" width="500px">
-  <img src="images/6d49d58c9f40473184e547f937cccb9a.png" width="500px">
+  <img src="images/76c5e03eb7364eaaac4e7e1656990e88.png" width="250px">
+  <img src="images/6d49d58c9f40473184e547f937cccb9a.png" width="250px">
 </div>
 
 for now we set these 2 to test that QG works. Then we can set up further conditions
