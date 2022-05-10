@@ -2,15 +2,6 @@
   <h1>Martín Pavesio Continuous Integration Final Project</h1>
 </div>
 
-Table of contents
-=================
-
-<!--ts-->
-   * [2.1 Source code](#source-code)
-   * [Usage](#usage)
-      * [STDIN](#stdin)
-
-
 ## 2.1 Source code
 
 ### Added Project to the Repo
