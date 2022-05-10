@@ -1,14 +1,16 @@
 <div align="center">
   <h1>Martín Pavesio Continuous Integration Final Project</h1>
 </div>
-
+##2.1 Source code
 ### Added Project to the Repo
-
+![alt text](images/Screenshot_20220509_215558.png?raw=true)
 
 ### Select Java with Maven Action
+![alt text](images/Screenshot_20220509_220156.png?raw=true)
+![alt text](images/Screenshot_20220509_220231.png?raw=true)
 
-
-### Adding Unit tests to the workflow
+##2.1 Unit Tests
+### Adding Unit Tests Job to the workflow
 
 ```
   tests:
@@ -58,7 +60,7 @@ on:
   <p>Workflow Dispatch active</p>
 </div>
 
-
+## 2.2 Quality Gate with SonarQube
 ### Login to sonarcloud with GitHub
 <div align="left">
   <img src="images/d8d04f92509845c28db7b60bcab4bdb3.png" width="350px">
@@ -228,13 +230,37 @@ REMEMBER TO SET THE NEW QG AS DEFAULT
 ![alt text](images/1c268a0f6da84954b60e915c1c253bdc.png?raw=true)
 
 Sonar job should Fail due to QG settings
+![alt text](images/Screenshot_20220509_215201.png?raw=true)
+![alt text](images/Screenshot_20220509_215320.png?raw=true)
 
+## 2.3 Storing Artifacts with JFrog Artifactory
 
-
----------------------------------FALTA QUE FUNCIONE QUALITY GATE --------------------------------
 
 JFrog Artifactory
 ![alt text](images/e1800ca03332459d973e9b482f0e2272.png)
 
 Adding SCM config to POM
 ![alt text](images/909f97058fbf41a89a292368b77a0550.png?raw=true)
+
+
+
+## 2.4 Integrating DevSecOps
+
+## 2.5 Additional tasks
+- Leverage the GitLab/GitHub cache feature in the pipeline
+This step was applied in every Job.
+```
+#   Adding Cache Action to build stage
+    - name: Cache Maven packages
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+```
+- Make some stages run in parallel – for example have unit tests run in parallel with sonar, not sequentially
+![alt text](images/Screenshot_20220509_220650.png?raw=true)
+
+- Find and fix a vulnerability found by security tools – if you do this, should be shown what was fixed as a merge request.
+
+- Create a docker image of your application and store in the GitLab Docker Registry or Artifactory or AWS ECR as part of the pipeline
