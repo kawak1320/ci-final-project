@@ -1,9 +1,9 @@
 <div align="center">
   <h1>Martín Pavesio Continuous Integration Final Project</h1>
 </div>
-# Table of Contents
-[2.1 Source code](#source-code)
-[2.1 Unit Tests](#tests)
+## Table of Contents
+* [2.1 Source code](#source-code)
+* [2.1 Unit Tests](#tests)
 
 ## <a name="source-code"></a>2.1 Source code
 
