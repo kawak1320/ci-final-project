@@ -14,7 +14,7 @@
 ## 2.1 Unit Tests
 ### Adding Unit Tests Job to the workflow
 
-```xml
+```yml
   tests:
     name: Unit Tests
     needs: [ gitleaks, snyk ]
