@@ -1,8 +1,11 @@
 <div align="center">
   <h1>Martín Pavesio Continuous Integration Final Project</h1>
 </div>
+# Table of Contents
+[2.1 Source code](#source-code)
+[2.1 Unit Tests](#tests)
 
-## 2.1 Source code
+## <a name="source-code"></a>2.1 Source code
 
 ### Added Project to the Repo
 ![alt text](images/Screenshot_20220509_215558.png?raw=true)
@@ -11,7 +14,7 @@
 ![alt text](images/Screenshot_20220509_220156.png?raw=true)
 ![alt text](images/Screenshot_20220509_220231.png?raw=true)
 
-## 2.1 Unit Tests
+## <a name="tests"></a>2.1 Unit Tests
 ### Adding Unit Tests Job to the workflow
 
 ```yml
