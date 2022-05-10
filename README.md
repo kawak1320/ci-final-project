@@ -36,8 +36,8 @@
 ```
 
 <div align="center">
-  <img src="images/b9d58f54f6b44aed87744548786e48c5.png">
   <p>Results of the test step.</p>
+  <img src="images/b9d58f54f6b44aed87744548786e48c5.png">
 </div>
 
 We can run any job in the workflow manually and add different trigger options for the Pipeline
@@ -60,73 +60,72 @@ on:
 
 
 ### Login to sonarcloud with GitHub
-<div align="center">
+<div align="left">
   <img src="images/d8d04f92509845c28db7b60bcab4bdb3.png" width="350px">
 </div>
 
 next, add repo to the sonar install
-<div align="center">
+<div align="left">
   <img src="images/7582a4a0c6864c9ca6da5ba5bce792b2.png" width="350px">
 </div>
 
 set up organization name in sonar
-<div align="center">
+<div align="left">
   <img src="images/074ff759fe6b41e4bb42d71eaa315f80.png" width="500px">
     <p>This key is the unique identifier of your organization. You will have to include it as a parameter when configuring your analysis. It could be the name of your company or your team.
 </p>
 </div>
 
 Select Free Plan
-<div align="center">
+<div align="left">
   <img src="images/0e4d64e1e514464b8aac213cb980a789.png" width="500px">
 </div>
 
 Select Project to Analyze
-<div align="center">
+<div align="left">
   <img src="images/dc2f13633b97428bbf828b55e3cba42d.png" width="500px">
 </div>
 
 Now we select the analysis method (GitHub Actions)
-<div align="center">
+<div align="left">
   <img src="images/6715c53aa0534410b698fd0fff5e4019.png" width="500px">
 </div>
 
 And we set New Code Analysis to Previous Version
-<div align="center">
+<div align="left">
   <img src="images/4f6acf5f21274ddc8e7066d13637f801.png" width="500px">
 </div>
 
 Then, we create a Secret in GH using this values
-<div align="center">
+<div align="left">
   <img src="images/4ce3f58006a3428dbcba8477c6d7e553.png" width="500px">
 </div>
 
-<div align="center">
+<div align="left">
   <img src="images/19694b159ec448a9a463a50def550ce9.png" width="500px">
 </div>
 
-<div align="center">
+<div align="left">
   <img src="images/0a35d032bb59488c8aa78ea49acf7466.png" width="500px">
 </div>
 
 Now, we select the Build Configuration for our project
-<div align="center">
+<div align="left">
   <img src="images/271655eae412458eacf32e6e981442cc.png" width="500px">
 </div>
 
 DO NOT FORGET TO DISABLE AUTOMATIC ANALYSIS
-<div align="center">
+<div align="left">
   <img src="images/1892acbb16994665ab205c412186729e.png" width="500px">
 </div>
 
 Now we have to setup our pom.yml with the given parameters in the previous example
-<div align="center">
+<div align="left">
   <img src="images/58c4270412d442278f2ed08c994f5ae7.png" width="500px">
 </div>
 
 Everything ok, but code coverage still missing...
-![alt text](images/549c666fb5c04ec0813dccf8c64ba8aa.png?raw=true)
-<div align="center">
+<div align="left">
   <img src="images/549c666fb5c04ec0813dccf8c64ba8aa.png" width="500px">
 </div>
 
