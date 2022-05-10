@@ -1,7 +1,9 @@
 <div align="center">
   <h1>Martín Pavesio Continuous Integration Final Project</h1>
 </div>
+
 ## 2.1 Source code
+
 ### Added Project to the Repo
 ![alt text](images/Screenshot_20220509_215558.png?raw=true)
 
