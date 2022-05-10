@@ -46,7 +46,7 @@
 
 We can run any job in the workflow manually and add different trigger options for the Pipeline
 
-```
+```yml
 on:
   #Manually trigger runs
   workflow_dispatch:
@@ -140,7 +140,7 @@ Adding JavaCodeCoverage dependencies and plugin to pom.xml
 
 
 Now we set up Build Stage.
- ```
+```yml
 build:
     #Make Sonar run Build job parallel to Tests job and build only when these steps do not fail
     needs: [ tests, sonar ]
@@ -178,7 +178,7 @@ And we have Code Coverage!
 ![alt text](images/9c1a81626b8547509fee021a8239c09d.png?raw=true)
 
 Adding Sonar Quality Gate to Sonar job
-```
+```yml
   sonar:
     continue-on-error: true
     name: SonarCloud Analysis (allow failure)
@@ -240,7 +240,7 @@ In this case we set up `continue-on-error: true` param to be able to build and c
 
 Final Build Job
 
-```
+```yml
   build:
     name: Build
     #Make Sonar run Build job parallel to Tests job and build only when these steps do not fail
@@ -295,7 +295,7 @@ I will do further research on Maven and JFrog settings.
 
 ## 2.4 Integrating DevSecOps
 ### Gitleaks
-```
+```yml
   gitleaks:
     name: gitleaks
     runs-on: ubuntu-latest
@@ -309,7 +309,7 @@ I will do further research on Maven and JFrog settings.
 ![alt text](images/Screenshot_20220509_223350.png?raw=true)
 
 ### Snyk
-```
+```yml
   snyk:
     runs-on: ubuntu-latest
     steps:
@@ -328,7 +328,7 @@ I will do further research on Maven and JFrog settings.
 - Leverage the GitLab/GitHub cache feature in the pipeline
 <p>This step was applied in every Job.</p>
 
-```
+```yml
 #   Adding Cache Action to build stage
     - name: Cache Maven packages
       uses: actions/cache@v1
