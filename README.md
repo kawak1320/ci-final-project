@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Martín Pavesio Continuous Integration Final Project</h1>
 </div>
-##2.1 Source code
+## 2.1 Source code
 ### Added Project to the Repo
 ![alt text](images/Screenshot_20220509_215558.png?raw=true)
 
@@ -9,7 +9,7 @@
 ![alt text](images/Screenshot_20220509_220156.png?raw=true)
 ![alt text](images/Screenshot_20220509_220231.png?raw=true)
 
-##2.1 Unit Tests
+## 2.1 Unit Tests
 ### Adding Unit Tests Job to the workflow
 
 ```
@@ -232,6 +232,7 @@ REMEMBER TO SET THE NEW QG AS DEFAULT
 Sonar job should Fail due to QG settings
 ![alt text](images/Screenshot_20220509_215201.png?raw=true)
 ![alt text](images/Screenshot_20220509_215320.png?raw=true)
+In this case we set up `continue-on-error:` true param to be able to build and continue with the tasks.
 
 ## 2.3 Storing Artifacts with JFrog Artifactory
 
