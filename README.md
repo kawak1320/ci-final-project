@@ -325,6 +325,7 @@ I will do further research on Maven and JFrog settings.
 ## 2.5 Additional tasks
 - Leverage the GitLab/GitHub cache feature in the pipeline
 <p>This step was applied in every Job.</p>
+
 ```
 #   Adding Cache Action to build stage
     - name: Cache Maven packages
