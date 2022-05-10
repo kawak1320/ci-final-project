@@ -109,10 +109,6 @@ Then, we create a Secret in GH using this values
   <img src="images/19694b159ec448a9a463a50def550ce9.png" width="500px">
 </div>
 
-<div align="left">
-  <img src="images/0a35d032bb59488c8aa78ea49acf7466.png" width="500px">
-</div>
-
 Now, we select the Build Configuration for our project
 <div align="left">
   <img src="images/271655eae412458eacf32e6e981442cc.png" width="500px">
