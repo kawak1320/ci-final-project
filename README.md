@@ -304,6 +304,7 @@ I will do further research on Maven and JFrog settings.
       - name: gitleaks-action
         uses: zricethezav/gitleaks-action@master
 ```
+![alt text](images/Screenshot_20220509_223350.png?raw=true)
 
 ### Snyk
 ```
@@ -319,6 +320,7 @@ I will do further research on Maven and JFrog settings.
         with:
           args: --sarif-file-output=snyk.sarif
 ```
+![alt text](images/Screenshot_20220509_223611.png?raw=true)
 
 ## 2.5 Additional tasks
 - Leverage the GitLab/GitHub cache feature in the pipeline
