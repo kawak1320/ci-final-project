@@ -2,13 +2,13 @@
   <h1>ci-final-project</h1>
 </div>
 
-#Added Project to the Repo
+# Added Project to the Repo
 
 
-#Select Java with Maven Action
+# Select Java with Maven Action
 
 
-#Adding Unit tests to the workflow
+# Adding Unit tests to the workflow
 
 ```
   tests:
@@ -36,12 +36,11 @@
 ```
 
 <div align="center">
-  <img src="images/b9d58f54f6b44aed87744548786e48c5.png" width="200px">
+  <img src="images/b9d58f54f6b44aed87744548786e48c5.png">
   <p>Results of the test step.</p>
 </div>
 
 We can run any job in the workflow manually
-and added different trigger options for the Pipeline
 ```
 on:
   #Manually trigger runs
@@ -52,7 +51,12 @@ on:
   pull_request:
     types: [ opened, synchronize, reopened ]
 ```
-![alt text](images/13d001ac8f8a422bb9ed372668992d90.png?raw=true)
+and added different trigger options for the Pipeline
+
+<div align="center">
+  <img src="images/13d001ac8f8a422bb9ed372668992d90.png">
+  <p>Workflow Dispatch active</p>
+</div>
 
 Login to sonarcloud with GitHub
 ![alt text](images/d8d04f92509845c28db7b60bcab4bdb3.png?raw=true)
