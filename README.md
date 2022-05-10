@@ -232,20 +232,93 @@ REMEMBER TO SET THE NEW QG AS DEFAULT
 Sonar job should Fail due to QG settings
 ![alt text](images/Screenshot_20220509_215201.png?raw=true)
 ![alt text](images/Screenshot_20220509_215320.png?raw=true)
-In this case we set up `continue-on-error:` true param to be able to build and continue with the tasks.
+In this case we set up `continue-on-error: true` param to be able to build and continue with the tasks.
 
 ## 2.3 Storing Artifacts with JFrog Artifactory
 
+Final Build Job
 
-JFrog Artifactory
-![alt text](images/e1800ca03332459d973e9b482f0e2272.png)
+```
+  build:
+    name: Build
+    #Make Sonar run Build job parallel to Tests job and build only when these steps do not fail
+    needs: [ sonar, tests ]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: '11'
 
-Adding SCM config to POM
+#   Adding Cache Action to build stage
+    - name: Cache Maven packages
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+
+    - name: Set Up Custom Artifactory Instance
+      uses: actions/setup-java@v1
+      with:
+        java-version: '11'
+        server-id: artifactory
+        server-username: ARTIFACTORY_USERNAME_REF
+        server-password: ARTIFACTORY_TOKEN_REF
+
+    - name: Build with Maven and Upload to Artifactory.
+      run: mvn -B package -DskipTests --file pom.xml
+      env:
+        ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
+        ARTIFACTORY_USERNAME_REF: ${{ secrets.ARTIFACTORY_USERNAME }}
+
+#    Upload artifacts workflow allowing to share data between jobs and store data once a workflow is complete.
+    - name: Upload JAR
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-artifact
+        path: ${{ github.workspace }}
+```
+POM.xml configuration
+https://github.com/kawak1320/ci-final-project/blob/main/pom.xml
+
+Adding SCM config to POM.xml
 ![alt text](images/909f97058fbf41a89a292368b77a0550.png?raw=true)
 
-
+JFrog Artifactory Repos
+![alt text](images/Screenshot_20220509_222344.png)
+Here i've been having issues to upload correctly the artifacts to artifactory. Still couldn't find the proper setting.
+I will do further research on Maven and JFrog settings.
 
 ## 2.4 Integrating DevSecOps
+### Gitleaks
+```
+  gitleaks:
+    name: gitleaks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+      - name: gitleaks-action
+        uses: zricethezav/gitleaks-action@master
+```
+
+### Snyk
+```
+  snyk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/maven@master
+        continue-on-error: true # To make sure that SARIF upload gets called
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --sarif-file-output=snyk.sarif
+```
 
 ## 2.5 Additional tasks
 - Leverage the GitLab/GitHub cache feature in the pipeline
