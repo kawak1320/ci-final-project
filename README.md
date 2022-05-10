@@ -217,13 +217,16 @@ tutorial used:
 https://github.com/marketplace/actions/sonarqube-quality-gate-check
 
 Now we need to set up Quality Gate scope
-![alt text](images/61b63bdc7db44497bd68fbe968eec594.png?raw=true)
+<div align="left">
+  <img src="images/61b63bdc7db44497bd68fbe968eec594.png" width="500px">
+</div>
 
 Create a new QG from Organization's Settings:
 On new and overall Code
-![alt text](images/76c5e03eb7364eaaac4e7e1656990e88.png?raw=true)
-
-![alt text](images/6d49d58c9f40473184e547f937cccb9a.png?raw=true)
+<div align="left">
+  <img src="images/76c5e03eb7364eaaac4e7e1656990e88.png" width="500px">
+  <img src="images/6d49d58c9f40473184e547f937cccb9a.png" width="500px">
+</div>
 
 for now we set these 2 to test that QG works. Then we can set up further conditions
 REMEMBER TO SET THE NEW QG AS DEFAULT
